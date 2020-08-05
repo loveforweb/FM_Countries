@@ -12,6 +12,7 @@ import ThemeSwitcher from './components/ThemeSwitcher';
 import axios from 'axios';
 import { useQuery } from 'react-query';
 
+// TODO: Refactor and move back to Home and use easuy-peasy for state management.
 const App = () => {
   const [pageTheme, setPageTheme] = useState('light');
   const [initialCountries, setIntialCoutries] = useState([]);
