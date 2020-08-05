@@ -16,7 +16,7 @@ const RegionFilter = ({ filterCountriesByRegion, selectedRegion }) => {
 
       <Dropdown.Menu>
         <Dropdown.Item
-          eventKey="All"
+          eventKey="All Regions"
           key={`all`}
           className={selectedRegion === 'All Regions' ? 'selected' : null}
         >

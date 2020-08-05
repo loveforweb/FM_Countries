@@ -5,22 +5,16 @@ import {
   DetailsContainer,
   Heading,
 } from './styles';
-import React, { useEffect } from 'react';
 
 import BackButton from '../../components/BackButton/BackButton';
 import BorderTags from '../../components/BorderTags';
 import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
 import CountryFlag from '../../components/CountryFlag';
 import CountryStat from '../../components/CountryStat';
+import React from 'react';
 import Row from 'react-bootstrap/Row';
 import axios from 'axios';
-import { borders } from '../../all-countries';
-import { country } from '../../all-countries';
-import fetch from '../../utils/fetch';
-import styled from 'styled-components';
 import { useQuery } from 'react-query';
-import { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 
 const CountryPage = ({ match, location }) => {

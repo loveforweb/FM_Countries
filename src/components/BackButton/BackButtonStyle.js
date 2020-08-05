@@ -12,13 +12,13 @@ export const BackButtonWrapper = styled(Button)`
   margin-bottom: 81px;
   background-color: ${({ theme }) => theme.buttonBg};
   border-radius: 2px;
-  transition: all 0.15s linear;
+  transition: none;
 
   svg {
     font-size: 33px;
     position: relative;
     left: 0;
-    transition: all 0.15s ease-in-out;
+    transition: none;
   }
 
   &:hover,

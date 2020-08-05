@@ -5,7 +5,7 @@ import React from 'react';
 const CountryStat = ({ title, stat }) => {
   return (
     <CountryStatWrapper>
-      <span>{title}</span>: {stat}
+      <span>{title}</span>: {stat ? stat : '-'}
     </CountryStatWrapper>
   );
 };

@@ -13,7 +13,7 @@ export const BordersWrapper = styled.div`
     align-items: center;
     margin-right: 16px;
     font-size: 16px;
-    width: 150px;
+    min-width: 150px;
   }
 `;
 
@@ -31,7 +31,7 @@ export const CountryButton = styled(Link)`
   padding: 3px 12px;
   text-align: center;
   width: auto;
-  transition: all 0.15s linear;
+  transition: none;
 
   &:hover,
   &:active,
