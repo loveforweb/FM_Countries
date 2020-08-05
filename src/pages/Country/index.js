@@ -1,9 +1,9 @@
 import {
-  ContainerWrapper,
   CountryListWrapper,
   CountryStatsList,
   DetailsContainer,
   Heading,
+  PageGrid,
 } from './styles';
 
 import BackButton from '../../components/BackButton/BackButton';
@@ -64,68 +64,51 @@ const CountryPage = ({ match, location }) => {
     });
   }
   return (
-    <ContainerWrapper>
-      <BackButton />
-      <Row>
-        <Col>
-          <CountryFlag imgSrc={flag} altAttr={name} large asImage />
-        </Col>
-        <Col>
-          <DetailsContainer>
-            <Row>
-              <Col>
-                <Heading>{name}</Heading>
-                <CountryListWrapper>
-                  <CountryStatsList>
-                    <li>
-                      <CountryStat title="Native Name" stat={nativeName} />
-                    </li>
-                    <li>
-                      <CountryStat
-                        title="Population"
-                        stat={population.toLocaleString()}
-                      />
-                    </li>
-                    <li>
-                      <CountryStat title="Region" stat={region} />
-                    </li>
+    <div className="container">
+      <PageGrid>
+        <BackButton />
+        <CountryFlag imgSrc={flag} altAttr={name} large asImage />
+        <DetailsContainer>
+          <Heading>{name}</Heading>
+          <CountryListWrapper>
+            <CountryStatsList>
+              <li>
+                <CountryStat title="Native Name" stat={nativeName} />
+              </li>
+              <li>
+                <CountryStat
+                  title="Population"
+                  stat={population.toLocaleString()}
+                />
+              </li>
+              <li>
+                <CountryStat title="Region" stat={region} />
+              </li>
 
-                    <li>
-                      <CountryStat title="Sub Region" stat={subregion} />
-                    </li>
-                    <li>
-                      <CountryStat title="Capital" stat={capital} />
-                    </li>
-                  </CountryStatsList>
+              <li>
+                <CountryStat title="Sub Region" stat={subregion} />
+              </li>
+              <li>
+                <CountryStat title="Capital" stat={capital} />
+              </li>
+            </CountryStatsList>
 
-                  <CountryStatsList>
-                    <li>
-                      <CountryStat
-                        title="Top Level Domain"
-                        stat={topLevelDomain}
-                      />
-                    </li>
-                    <li>
-                      <CountryStat title="Currencies" stat={currenciesList} />
-                    </li>
-                    <li>
-                      <CountryStat title="Languages" stat={languagesList} />
-                    </li>
-                  </CountryStatsList>
-                </CountryListWrapper>
-              </Col>
-            </Row>
-            {borders.length ? (
-              <Row>
-                <Col>
-                  <BorderTags borderCodes={borders} />
-                </Col>
-              </Row>
-            ) : null}
-          </DetailsContainer>
-        </Col>
-      </Row>
-    </ContainerWrapper>
+            <CountryStatsList>
+              <li>
+                <CountryStat title="Top Level Domain" stat={topLevelDomain} />
+              </li>
+              <li>
+                <CountryStat title="Currencies" stat={currenciesList} />
+              </li>
+              <li>
+                <CountryStat title="Languages" stat={languagesList} />
+              </li>
+            </CountryStatsList>
+          </CountryListWrapper>
+          {borders.length ? <BorderTags borderCodes={borders} /> : null}
+        </DetailsContainer>
+      </PageGrid>
+    </div>
   );
 };
 

@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 export const BordersWrapper = styled.div`
   display: flex;
-  margin-top: 63px;
   align-items: baseline;
 
   span {

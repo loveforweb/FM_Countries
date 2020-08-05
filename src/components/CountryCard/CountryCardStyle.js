@@ -8,6 +8,9 @@ export const CountryCardContent = styled.div`
   transition: all 0.15s ease-in-out;
   opacity: 1;
   transform: scale(1);
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
 `;
 
 export const CountryCardWrapper = styled.div`
@@ -16,6 +19,7 @@ export const CountryCardWrapper = styled.div`
   a {
     color: ${({ theme }) => theme.text};
     display: block;
+    height: 100%;
 
     &:hover,
     &:focus {

@@ -1,47 +1,36 @@
-import { CountriesList, CountriesListItem, PageWrapper } from './styles';
+import { CountriesList, PageWrapper, TopGrid } from './styles';
 
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
 import CountryCard from '../../components/CountryCard';
 import React from 'react';
 import RegionFilter from '../../components/RegionFilter';
-import Row from 'react-bootstrap/Row';
 import Search from '../../components/Search/Search';
 
 const HomePage = (props) => {
   return (
     <PageWrapper>
-      <Container>
-        <Row>
-          <Col md={5}>
-            <Search
-              filterCountriesByText={props.filterCountriesByText}
-              searchText={props.searchText}
-              handleFocusBlur={props.handleFocusBlur}
-              searchFocused={props.searchFocused}
-            />
-          </Col>
-          <Col className="text-right">
-            <RegionFilter
-              filterCountriesByRegion={props.filterCountriesByRegion}
-              selectedRegion={props.selectedRegion}
-            />
-          </Col>
-        </Row>
+      <div className="container">
+        <TopGrid>
+          <Search
+            filterCountriesByText={props.filterCountriesByText}
+            searchText={props.searchText}
+            handleFocusBlur={props.handleFocusBlur}
+            searchFocused={props.searchFocused}
+          />
+          <RegionFilter
+            filterCountriesByRegion={props.filterCountriesByRegion}
+            selectedRegion={props.selectedRegion}
+          />
+        </TopGrid>
         <CountriesList>
           {props.countries.length ? (
             props.countries.map((country) => {
-              return (
-                <CountriesListItem key={country.alpha3Code}>
-                  <CountryCard {...country} />
-                </CountriesListItem>
-              );
+              return <CountryCard {...country} key={country.alpha3Code} />;
             })
           ) : (
             <p>No countries</p>
           )}
         </CountriesList>
-      </Container>
+      </div>
     </PageWrapper>
   );
 };
