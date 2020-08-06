@@ -14,9 +14,6 @@ import { {{name}}Wrapper } from './{{name}}Style'
 };
 {{/if}}
 
-const {{ name }}Wrapper = styled.div`
-`;
-
 {{#if export }}export {{/if}}const {{ name }}{{#if typescript}}: React.FC<
   {{~#if proptypes~}} {{ name ~}} Props {{~else~}} any {{~/if}}> {{~/if}} = () => {
   return (

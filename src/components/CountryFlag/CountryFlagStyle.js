@@ -1,4 +1,3 @@
-import breakpoint from '../../utils/breakpoint';
 import styled from 'styled-components';
 
 export const FlagWrapper = styled.div`

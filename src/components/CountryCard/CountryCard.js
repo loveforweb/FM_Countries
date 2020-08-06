@@ -22,37 +22,37 @@ const CountryCard = ({
   alpha3Code,
 }) => {
   return (
-    <Flip bottom>
-      <CountryCardWrapper>
-        <Link
-          to={{
-            pathname: `/country/${alpha3Code}`,
-            state: { name, population, region, capital, flag, alpha3Code },
-          }}
-        >
-          <CountryCardContent>
-            <CountryFlag imgSrc={flag} altAttr={name} />
-            <CountrySummary>
-              <CountryName>{name}</CountryName>
-              <CountryStatsList>
-                <li>
-                  <CountryStat
-                    title="Population"
-                    stat={population.toLocaleString()}
-                  />
-                </li>
-                <li>
-                  <CountryStat title="Region" stat={region} />
-                </li>
-                <li>
-                  <CountryStat title="Capital" stat={capital} />
-                </li>
-              </CountryStatsList>
-            </CountrySummary>
-          </CountryCardContent>
-        </Link>
-      </CountryCardWrapper>
-    </Flip>
+    // <Flip bottom>
+    <CountryCardWrapper>
+      <Link
+        to={{
+          pathname: `/country/${alpha3Code}`,
+          state: { name, population, region, capital, flag, alpha3Code },
+        }}
+      >
+        <CountryCardContent>
+          <CountryFlag imgSrc={flag} altAttr={name} />
+          <CountrySummary>
+            <CountryName>{name}</CountryName>
+            <CountryStatsList>
+              <li>
+                <CountryStat
+                  title="Population"
+                  stat={population.toLocaleString()}
+                />
+              </li>
+              <li>
+                <CountryStat title="Region" stat={region} />
+              </li>
+              <li>
+                <CountryStat title="Capital" stat={capital} />
+              </li>
+            </CountryStatsList>
+          </CountrySummary>
+        </CountryCardContent>
+      </Link>
+    </CountryCardWrapper>
+    // </Flip>
   );
 };
 

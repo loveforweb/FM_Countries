@@ -1,20 +1,5 @@
-import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
-export const BordersWrapper = styled.div`
-  display: flex;
-  align-items: baseline;
-
-  span {
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    margin-right: 16px;
-    font-size: 16px;
-    min-width: 150px;
-  }
-`;
 
 export const CountryButton = styled(Link)`
   align-items: center;
@@ -44,9 +29,4 @@ export const CountryButton = styled(Link)`
   &:last-of-type {
     margin-right: 0;
   }
-`;
-
-export const BordersList = styled.div`
-  display: flex;
-  flex-wrap: wrap;
 `;

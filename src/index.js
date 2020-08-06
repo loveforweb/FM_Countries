@@ -2,7 +2,7 @@ import './styles/index.scss';
 
 import * as serviceWorker from './serviceWorker';
 
-import App from './app';
+import App from './App';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ReactQueryDevtools } from 'react-query-devtools';
