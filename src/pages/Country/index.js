@@ -1,27 +1,30 @@
+import {
+  API_STALE_TIMEOUT,
+  borderAPI,
+  countryDataAPI,
+} from '../../api-calls/api';
+
 import BackButton from '../../components/BackButton/BackButton';
 import CountryDetails from '../../components/CountryDetails/CountryDetails';
 import CountryFlag from '../../components/CountryFlag';
+import LoaderIcon from '../../components/LoaderIcon';
 import { PageGrid } from './styles';
 import React from 'react';
-import axios from 'axios';
 import { useQuery } from 'react-query';
 import { withRouter } from 'react-router-dom';
 
 const CountryPage = ({ match, location }) => {
-  const { name, alpha3Code } = location.state;
+  const alpha3Code = match.params.id;
+
   let borderCodeParams = '';
+  let languagesList = '';
+  let currenciesList = '';
 
   const { status: countryStatus, data: countryData } = useQuery(
-    `country-${alpha3Code}`,
-    async () => {
-      const { data } = await axios.get(
-        `https://restcountries.eu/rest/v2/name/${name}?fields=name;flag;population;flag;region;capital;nativeName;subregion;topLevelDomain;currencies;languages;borders`
-      );
-
-      return data[0];
-    },
+    `${alpha3Code}`,
+    countryDataAPI,
     {
-      staleTime: 86400000,
+      staleTime: API_STALE_TIMEOUT,
     }
   );
 
@@ -29,38 +32,32 @@ const CountryPage = ({ match, location }) => {
     borderCodeParams = countryData.borders.join(';');
   }
 
-  const { status, data: borderData = [] } = useQuery(
-    `borders-${borderCodeParams}`,
-    async () => {
-      const { data } = await axios.get(
-        `https://restcountries.eu/rest/v2/alpha?codes=${borderCodeParams}&fields=name;alpha3Code;population;region;capital;flag;alpha3Code`
-      );
-      return data;
-    },
+  const { status: borderStatus, data: borderData = [] } = useQuery(
+    `${borderCodeParams}`,
+    borderAPI,
     {
       enabled: (countryData && countryData.borders.length > 0) || false,
-      staleTime: 86400000,
+      staleTime: API_STALE_TIMEOUT,
     }
   );
 
-  if (countryStatus === 'loading' || status === 'loading')
-    return <p>Loading...</p>;
-  if (countryStatus === 'error' || status === 'error') return <p>Error :(</p>;
+  if (countryStatus === 'loading' || borderStatus === 'loading')
+    return <LoaderIcon />;
+  if (countryStatus === 'error' || borderStatus === 'error')
+    return <p>Error :(</p>;
 
-  const { currencies, languages } = countryData;
-  let languagesList = '';
-  let currenciesList = '';
-
-  if (languages) {
-    languages.forEach((lang, i) => {
-      languagesList += `${lang.name}${i + 1 === languages.length ? '' : ', '}`;
+  if (countryData.languages) {
+    countryData.languages.forEach((lang, i) => {
+      languagesList += `${lang.name}${
+        i + 1 === countryData.languages.length ? '' : ', '
+      }`;
     });
   }
 
-  if (currencies) {
-    currencies.forEach((curr, i) => {
+  if (countryData.currencies) {
+    countryData.currencies.forEach((curr, i) => {
       currenciesList += `${curr.name}${
-        i + 1 === currencies.length ? '' : ', '
+        i + 1 === countryData.currencies.length ? '' : ', '
       }`;
     });
   }
@@ -70,7 +67,6 @@ const CountryPage = ({ match, location }) => {
     languages: languagesList,
     currencies: currenciesList,
     borders: [...borderData],
-    name,
     alpha3Code,
   };
 

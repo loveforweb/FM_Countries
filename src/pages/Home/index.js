@@ -1,11 +1,12 @@
+import { API_STALE_TIMEOUT, allCountriesAPI } from '../../api-calls/api';
 import { CountriesList, PageWrapper, TopGrid } from './styles';
 import React, { useContext, useEffect } from 'react';
 
 import { CountriesContext } from '../../context/countriesContext';
 import CountryCard from '../../components/CountryCard';
+import LoaderIcon from '../../components/LoaderIcon';
 import RegionFilter from '../../components/RegionFilter';
 import Search from '../../components/Search/Search';
-import axios from 'axios';
 import { useQuery } from 'react-query';
 
 const HomePage = (props) => {
@@ -24,16 +25,9 @@ const HomePage = (props) => {
     setSelectedRegion,
   } = useContext(CountriesContext);
 
-  const { status, data } = useQuery(
-    `all-countries`,
-    async () => {
-      const { data } = await axios.get(
-        `https://restcountries.eu/rest/v2/all?fields=name;capital;region;flag;population;alpha3Code`
-      );
-      return data;
-    },
-    { staleTime: 86400000 }
-  );
+  const { status, data } = useQuery(`all-countries`, allCountriesAPI, {
+    staleTime: API_STALE_TIMEOUT,
+  });
 
   useEffect(() => {
     if (data && !hasData) {
@@ -41,7 +35,7 @@ const HomePage = (props) => {
       setDisplayCountries(data);
       setHasData(true);
     }
-  }, [data]);
+  }, [data, hasData, setIntialCoutries, setDisplayCountries, setHasData]);
 
   const handleFocusBlur = (e) => {
     if (e.type === 'focus') {
@@ -89,7 +83,7 @@ const HomePage = (props) => {
     setDisplayCountries(filteredCountries);
   };
 
-  if (status === 'loading') return <p>Loading...</p>;
+  if (status === 'loading') return <LoaderIcon />;
   if (status === 'error') return <p>Error :(</p>;
 
   return (

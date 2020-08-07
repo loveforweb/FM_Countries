@@ -27,7 +27,7 @@ const CountryCard = ({
       <Link
         to={{
           pathname: `/country/${alpha3Code}`,
-          state: { name, population, region, capital, flag, alpha3Code },
+          state: { alpha3Code },
         }}
       >
         <CountryCardContent>

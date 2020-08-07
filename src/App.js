@@ -4,7 +4,6 @@ import { darkTheme, lightTheme } from './components/Themes/Themes';
 
 import CountriesProvider from './context/countriesContext';
 import CountryPage from './pages/Country';
-import Footer from './components/Footer';
 import GlobalStyles from './components/Globalstyles';
 import Header from './components/Header';
 import HomePage from './pages/Home';
@@ -31,7 +30,6 @@ const App = () => {
             <Route exact path="/country/:id" component={CountryPage} />
           </Switch>
         </Router>
-        <Footer />
       </ThemeProvider>
     </CountriesProvider>
   );
