@@ -2,7 +2,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import breakpoint from '../../utils/breakpoint';
 import styled from 'styled-components';
 
-export const DropdownToggle = styled(Dropdown)`
+export const DropdownWrapper = styled(Dropdown)`
   width: 200px;
 
   ${breakpoint.md`
@@ -21,6 +21,7 @@ export const DropdownToggle = styled(Dropdown)`
     justify-content: space-between;
     padding-left: 23px;
     width: 100%;
+    transition: background 0.15s linear;
 
     &:after {
       display: none;

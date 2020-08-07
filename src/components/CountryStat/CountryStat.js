@@ -11,7 +11,8 @@ const CountryStat = ({ title, stat }) => {
 };
 
 CountryStat.propTypes = {
-  //
+  title: PropTypes.string.isRequired,
+  stat: PropTypes.string.isRequired,
 };
 
 export default CountryStat;

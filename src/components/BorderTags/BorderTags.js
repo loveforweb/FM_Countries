@@ -21,7 +21,8 @@ const BorderTags = ({ name, alpha3Code }) => {
 };
 
 BorderTags.propTypes = {
-  //
+  name: PropTypes.string.isRequired,
+  alpha3Code: PropTypes.string.isRequired,
 };
 
 export default BorderTags;

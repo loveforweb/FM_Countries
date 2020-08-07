@@ -8,7 +8,6 @@ import {
 
 import CountryFlag from '../CountryFlag';
 import CountryStat from '../CountryStat';
-import Flip from 'react-reveal/Flip';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -22,7 +21,6 @@ const CountryCard = ({
   alpha3Code,
 }) => {
   return (
-    // <Flip bottom>
     <CountryCardWrapper>
       <Link
         to={{
@@ -52,12 +50,16 @@ const CountryCard = ({
         </CountryCardContent>
       </Link>
     </CountryCardWrapper>
-    // </Flip>
   );
 };
 
 CountryCard.propTypes = {
-  //
+  name: PropTypes.string.isRequired,
+  population: PropTypes.number.isRequired,
+  region: PropTypes.string.isRequired,
+  capital: PropTypes.string.isRequired,
+  flag: PropTypes.string.isRequired,
+  alpha3Code: PropTypes.string.isRequired,
 };
 
 export default CountryCard;

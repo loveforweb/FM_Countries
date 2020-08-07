@@ -40,7 +40,7 @@ const CountryDetails = ({ countryData }) => {
 
       {countryData.borders.length ? (
         <BordersWrapper>
-          <span>Border countries</span>
+          <span>Border Countries</span>
           <BordersList>
             {countryData.borders.map((border) => {
               return <BorderTags key={border.alpha3Code} {...border} />;
@@ -53,7 +53,7 @@ const CountryDetails = ({ countryData }) => {
 };
 
 CountryDetails.propTypes = {
-  //
+  countryData: PropTypes.shape({}).isRequired,
 };
 
 export default CountryDetails;

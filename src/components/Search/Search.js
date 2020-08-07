@@ -31,7 +31,10 @@ const Search = ({
 };
 
 Search.propTypes = {
-  //
+  filterCountriesByText: PropTypes.func.isRequired,
+  searchText: PropTypes.string,
+  handleFocusBlur: PropTypes.func.isRequired,
+  searchFocused: PropTypes.bool.isRequired,
 };
 
 export default Search;

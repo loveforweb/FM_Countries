@@ -6,15 +6,16 @@ import { SwitchButton } from './ThemeSwitcherStyle';
 
 const ThemeSwitcher = ({ themeToggler, theme }) => {
   return (
-    <SwitchButton variant="link" onClick={themeToggler}>
-      {theme === 'light' ? <FaMoon /> : <FaRegMoon />}
+    <SwitchButton variant="link" className="btn" onClick={themeToggler}>
+      {theme === 'light' ? <FaRegMoon /> : <FaMoon />}
       <span>Dark Mode</span>
     </SwitchButton>
   );
 };
 
 ThemeSwitcher.propTypes = {
-  //
+  themeToggler: PropTypes.func.isRequired,
+  theme: PropTypes.string.isRequired,
 };
 
 export default ThemeSwitcher;

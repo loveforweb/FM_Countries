@@ -19,6 +19,7 @@ const CountryPage = ({ match, location }) => {
   let borderCodeParams = '';
   let languagesList = '';
   let currenciesList = '';
+  let topLevelDomainList = '';
 
   const { status: countryStatus, data: countryData } = useQuery(
     `${alpha3Code}`,
@@ -62,12 +63,20 @@ const CountryPage = ({ match, location }) => {
     });
   }
 
+  if (countryData.topLevelDomain) {
+    countryData.topLevelDomain.forEach((tld, i) => {
+      topLevelDomainList += `${tld}${
+        i + 1 === countryData.topLevelDomain.length ? '' : ', '
+      }`;
+    });
+  }
+
   const updatedCountryData = {
     ...countryData,
     languages: languagesList,
     currencies: currenciesList,
+    topLevelDomain: topLevelDomainList,
     borders: [...borderData],
-    alpha3Code,
   };
 
   return (

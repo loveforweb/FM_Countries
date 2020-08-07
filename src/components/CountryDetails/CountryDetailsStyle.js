@@ -8,7 +8,7 @@ export const CountryDetailsWrapper = styled.div`
 export const Heading = styled.h2`
   font-size: 32px;
   font-weight: 800;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 `;
 
 export const CountryStatsList = styled.div`
@@ -32,7 +32,7 @@ export const CountryListWrapper = styled.div`
 
   ${breakpoint.md`
   
-  margin-bottom: 16px;
+    margin-bottom: 60px;
     justify-content: space-between;
     flex-direction: row;
   `}
@@ -48,7 +48,7 @@ export const BordersWrapper = styled.div`
     align-items: center;
     margin-right: 16px;
     font-size: 16px;
-    min-width: 150px;
+    min-width: 125px;
   }
 `;
 

@@ -1,5 +1,5 @@
 import Dropdown from 'react-bootstrap/Dropdown';
-import { DropdownToggle } from './RegionFilterStyle';
+import { DropdownWrapper } from './RegionFilterStyle';
 import { IoIosArrowDown } from 'react-icons/io';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -8,9 +8,9 @@ const regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
 const RegionFilter = ({ filterCountriesByRegion, selectedRegion }) => {
   return (
-    <DropdownToggle onSelect={filterCountriesByRegion}>
+    <DropdownWrapper onSelect={filterCountriesByRegion}>
       <Dropdown.Toggle variant="link" id="dropdown-basic">
-        {selectedRegion ? selectedRegion : 'Filter by Regions'}
+        Filter by Region
         <IoIosArrowDown />
       </Dropdown.Toggle>
 
@@ -34,12 +34,13 @@ const RegionFilter = ({ filterCountriesByRegion, selectedRegion }) => {
           );
         })}
       </Dropdown.Menu>
-    </DropdownToggle>
+    </DropdownWrapper>
   );
 };
 
 RegionFilter.propTypes = {
-  //
+  filterCountriesByRegion: PropTypes.func.isRequired,
+  selectedRegion: PropTypes.string.isRequired,
 };
 
 export default RegionFilter;
