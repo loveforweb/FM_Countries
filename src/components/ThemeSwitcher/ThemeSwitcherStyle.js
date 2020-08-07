@@ -1,14 +1,20 @@
+import breakpoint from '../../utils/breakpoint';
 import styled from 'styled-components';
 
 export const SwitchButton = styled.button`
-  color: inherit;
-  transition: none;
-  padding: 0;
-  margin-top: -4px;
-  font-weight: 600;
-  font-size: 16px;
   box-shadow: none;
+  color: inherit;
+  font-size: 12px;
+  font-weight: 600;
   justify-content: flex-end;
+  margin-top: -8px;
+  padding: 0;
+  transition: none;
+
+  ${breakpoint.md`
+    font-size: 16px;
+    margin-top: -4px;
+  `}
 
   span {
     margin-left: 9px;

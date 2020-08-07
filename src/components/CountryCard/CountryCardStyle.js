@@ -1,3 +1,4 @@
+import breakpoint from '../../utils/breakpoint';
 import styled from 'styled-components';
 
 export const CountryCardContent = styled.div`
@@ -39,8 +40,13 @@ export const CountrySummary = styled.div`
 
 export const CountryName = styled.h2`
   font-weight: 600;
-  font-size: 19px;
-  margin-bottom: 16px;
+  font-size: 18px;
+  margin-bottom: 15px;
+
+  ${breakpoint.md`
+    font-size: 19px;
+    margin-bottom: 16px;
+  `}
 `;
 
 export const CountryStatsList = styled.ul`

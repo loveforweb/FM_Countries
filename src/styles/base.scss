@@ -68,30 +68,10 @@ button {
 
 
 .btn {
-  -webkit-appearance: button;
-  align-items: center;
-  align-self: center;
   border-radius: 2px;
-  border: 1px solid transparent;
   box-shadow: 0 0 3px 1px rgba(0,0,0,0.3);
-  color: inherit;
-  cursor: pointer;
   display: flex;
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: 400;
-  justify-content: center;
-  line-height: 1.5;
-  margin: 0;
-  overflow: visible;
   padding: 2px 24px 3px 12px;
-  text-align: center;
-  text-decoration: none;
-  text-transform: none;
-  transition: none;
-  user-select: none;
-  vertical-align: middle;
-  width: 135px;
 
   &:hover,
   &:focus,
@@ -101,9 +81,4 @@ button {
     box-shadow: 0 0 3px 1px rgba(0,0,0,0.3);
     outline: 0;
   }
-}
-
-svg {
-  overflow: hidden;
-    vertical-align: middle;
 }

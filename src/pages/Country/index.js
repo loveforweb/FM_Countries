@@ -3,12 +3,12 @@ import {
   borderAPI,
   countryDataAPI,
 } from '../../api-calls/api';
+import { PageGrid, PageWrapper } from './styles';
 
 import BackButton from '../../components/BackButton/BackButton';
 import CountryDetails from '../../components/CountryDetails/CountryDetails';
 import CountryFlag from '../../components/CountryFlag';
 import LoaderIcon from '../../components/LoaderIcon';
-import { PageGrid } from './styles';
 import React from 'react';
 import { useQuery } from 'react-query';
 import { withRouter } from 'react-router-dom';
@@ -80,18 +80,20 @@ const CountryPage = ({ match, location }) => {
   };
 
   return (
-    <div className="container">
-      <PageGrid>
-        <BackButton />
-        <CountryFlag
-          imgSrc={countryData.flag}
-          altAttr={countryData.name}
-          large
-          asImage
-        />
-        <CountryDetails countryData={updatedCountryData} />
-      </PageGrid>
-    </div>
+    <PageWrapper>
+      <div className="container">
+        <PageGrid>
+          <BackButton />
+          <CountryFlag
+            imgSrc={countryData.flag}
+            altAttr={countryData.name}
+            large
+            asImage
+          />
+          <CountryDetails countryData={updatedCountryData} />
+        </PageGrid>
+      </div>
+    </PageWrapper>
   );
 };
 

@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+import breakpoint from '../../utils/breakpoint';
+
 const placeholderStyle = css`
   color: ${({ theme }) => theme.inputPlaceholderText};
 `;
@@ -12,22 +14,30 @@ const notFocused = css`
 `;
 
 export const SearchWrapper = styled.div`
+  ${({ searchFocused }) => (searchFocused ? focused : notFocused)};
   align-items: center;
   background: ${({ theme }) => theme.inputBg};
   border-radius: 4px;
   display: flex;
-  height: 55px;
+  height: 48px;
   padding-left: 28px;
-  ${({ searchFocused }) => (searchFocused ? focused : notFocused)};
   transition: all 0.15s linear;
+
+  ${breakpoint.md`
+    height: 55px;
+  `}
 
   input {
     border: none;
     height: 100%;
-    font-size: 14px;
+    font-size: 12px;
     background: transparent;
     width: 100%;
     transition: background 0.15s linear;
+
+    ${breakpoint.md`
+    font-size: 14px;
+  `}
 
     &::-webkit-input-placeholder {
       ${placeholderStyle}
@@ -55,7 +65,11 @@ export const SearchWrapper = styled.div`
 
 export const SearchIcon = styled.div`
   color: ${({ theme }) => theme.inputPlaceholderText};
-  font-size: 23px;
+  font-size: 19px;
   margin-right: 11px;
   transition: color 0.15s linear;
+
+  ${breakpoint.md`
+    font-size: 23px;
+  `}
 `;
