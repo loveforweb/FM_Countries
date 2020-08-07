@@ -17,7 +17,7 @@ const Search = ({
         <IoIosSearch />
       </SearchIcon>
       <Form.Control
-        type="input"
+        type="text"
         name="search"
         aria-label="Search"
         placeholder="Search for a country..."
