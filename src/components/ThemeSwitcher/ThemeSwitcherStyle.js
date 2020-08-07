@@ -22,6 +22,7 @@ export const SwitchButton = styled.button`
 
   svg {
     transform: rotate(-25deg);
+    margin-top: 4px;
   }
 
   &:hover,
