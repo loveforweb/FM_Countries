@@ -1,12 +1,16 @@
+import './styles/index.scss';
+
+import * as serviceWorker from './serviceWorker';
+
+import App from './App';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { ReactQueryDevtools } from 'react-query-devtools';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <ReactQueryDevtools initialIsOpen />
   </React.StrictMode>,
   document.getElementById('root')
 );
